@@ -14,14 +14,14 @@ elemento_entrar = '//*[@id="bbConfirmar"]'
 elemento_relatorios = '//*[@id="ctl00_rptTopMenuContainer_ctl05_HyperLink1"]'
 elemento_rltr_analitico = '//*[@id="ctl00_rptTopMenuContainer_ctl05_rptSubMenuItem_ctl02_linkButtonMenu"]'
 elemento_rltr_mov = '//*[@id="ctl00_Cph_rblTipoConsulta_1"]'
-elemento_rltr_data1 = '//*[@id="ctl00_Cph_txtFaixaData_edit1_CAMPO"]'
-elemento_rltr_data2 = '//*[@id="ctl00_Cph_txtFaixaData_edit2_CAMPO"]'
+elemento_rltr_data1 = '//*[@id="ctl00_Cph_ucFaixaData_txtFaixaData_edit1_CAMPO"]'
+elemento_rltr_data2 = '//*[@id="ctl00_Cph_ucFaixaData_txtFaixaData_edit2_CAMPO"]'
 elemento_exportar = '//*[@id="ctl00_Cph_bbExportarCSV"]'
 
 tempo = 2
 tempo_download = 30
-login = "NSILVA"
-senha = "2fUJDjbnvJ9iA6Jrk7GT"
+login = "MCC335185"
+senha = ";351&,~<"
 bpo = ("https://front.meucashcard.com.br/WebAppBPOCartao/Login/ICLogin?ReturnUrl=%2FWebAppBPOCartao%2FPages%2FMenu%2FICMenu")
 data_atual = date.today()
 data_de_ontem = data_atual - timedelta(days=1) # Convert string back to date and subtract
@@ -34,6 +34,7 @@ print("Ontem foi dia: ", data_ontem_txt)
 print("O final de semana começou no dia: ", data_finalDeSemana_txt)
 
 navegador.get(bpo)
+navegador.maximize_window()
 time.sleep(tempo)
 
 if navegador.find_element('xpath',elemento_user):
