@@ -91,5 +91,6 @@ if navegador.find_element('xpath',elemento_exportar):
 else:
     print("Erro ao exportar CSV")
 
+print("Relatório Analítico extraído e funcionando!")
 
 time.sleep(tempo_download)
