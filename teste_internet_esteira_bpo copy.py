@@ -118,8 +118,34 @@ time.sleep(tempo)
 try:
     navegador.find_element('xpath',elemento_buscar)
     navegador.find_element('xpath',elemento_buscar).click()
-
+    
 except: print("Não foi possível buscar.")
 
-print("Consulta na esteira está funcionando!")
+finally: 
+    sucesso = print("Consulta na esteira está funcionando!")
 
+time.sleep(tempo_busca)
+
+# enviar um email com relatório
+import win32com.client as win32
+outlook = win32.Dispatch('outlook.application')
+mail = outlook.CreateItem(0)
+mail.To = 'sustentacao.app@meucashcard.com.br'
+mail.Subject = 'Monitoria Automática'
+mail.HTMLBody = '''
+<p>Prezados,</p>
+
+Segue o Relatório de Monitoria de Internet e Funções BPO.
+
+Internet: 
+
+
+Relatório BPO:
+{}
+
+Consulta Esteira BPO:
+{}
+
+'''
+
+mail.Send()

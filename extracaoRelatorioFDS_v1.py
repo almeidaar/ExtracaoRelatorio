@@ -14,8 +14,8 @@ elemento_entrar = '//*[@id="bbConfirmar"]'
 elemento_relatorios = '//*[@id="ctl00_rptTopMenuContainer_ctl05_HyperLink1"]'
 elemento_rltr_analitico = '//*[@id="ctl00_rptTopMenuContainer_ctl05_rptSubMenuItem_ctl02_linkButtonMenu"]'
 elemento_rltr_mov = '//*[@id="ctl00_Cph_rblTipoConsulta_1"]'
-elemento_rltr_data1 = '//*[@id="ctl00_Cph_ucFaixaData_txtFaixaData_edit1_CAMPO"]'
-elemento_rltr_data2 = '//*[@id="ctl00_Cph_ucFaixaData_txtFaixaData_edit2_CAMPO"]'
+elemento_rltr_data1 = '//*[@id="ctl00_Cph_txtFaixaData_edit1_CAMPO"]'
+elemento_rltr_data2 = '//*[@id="ctl00_Cph_txtFaixaData_edit2_CAMPO"]'
 elemento_exportar = '//*[@id="ctl00_Cph_bbExportarCSV"]'
 
 tempo = 2
