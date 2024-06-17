@@ -23,15 +23,8 @@ tempo_download = 30
 login = "MCC335185"
 senha = ";351&,~<"
 bpo = ("https://front.meucashcard.com.br/WebAppBPOCartao/Login/ICLogin?ReturnUrl=%2FWebAppBPOCartao%2FPages%2FMenu%2FICMenu")
-data_atual = date.today()
-data_de_ontem = data_atual - timedelta(days=1) # Convert string back to date and subtract
-data_ontem_txt = data_de_ontem.strftime('%d/%m/%Y')
-
-data_finalDeSemana = data_atual - timedelta(days=3)
-data_finalDeSemana_txt = data_finalDeSemana.strftime('%d/%m/%y')
-
-print("Ontem foi dia: ", data_ontem_txt)
-print("O final de semana começou no dia: ", data_finalDeSemana_txt)
+data_inicial = "15/05/2024"
+data_final = "15/05/2024"
 
 navegador.get(bpo)
 navegador.maximize_window()
@@ -41,6 +34,7 @@ if navegador.find_element('xpath',elemento_user):
     navegador.find_element('xpath',elemento_user).send_keys(login)
 else:
     print("Erro ao inserir o login")
+
 if navegador.find_element('xpath', elemento_senha):
     navegador.find_element('xpath', elemento_senha).send_keys(senha)   
 else:
@@ -72,7 +66,7 @@ else:
 if navegador.find_element('xpath',elemento_rltr_data1):
     time.sleep(tempo)
     navegador.find_element('xpath',elemento_rltr_data1).clear()
-    navegador.find_element('xpath',elemento_rltr_data1).send_keys(data_finalDeSemana_txt)
+    navegador.find_element('xpath',elemento_rltr_data1).send_keys(data_inicial)
 else:
     print("Erro ao inserir data de início")
 
@@ -80,7 +74,7 @@ if navegador.find_element('xpath',elemento_rltr_data2):
     time.sleep(tempo)
     navegador.find_element('xpath',elemento_rltr_data2).click()
     navegador.find_element('xpath',elemento_rltr_data2).clear()
-    navegador.find_element('xpath',elemento_rltr_data2).send_keys(data_ontem_txt)
+    navegador.find_element('xpath',elemento_rltr_data2).send_keys(data_final)
 else:
     print("Erro ao inserir data final")
 
@@ -90,6 +84,6 @@ if navegador.find_element('xpath',elemento_exportar):
 else:
     print("Erro ao exportar CSV")
 
-print("Relatório Analítico Funcionando!")
+print("Relatório Analítico extraído e funcionando!")
 
 time.sleep(tempo_download)
