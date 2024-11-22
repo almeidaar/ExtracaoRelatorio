@@ -41,68 +41,78 @@ navegador.get(bpo)
 navegador.maximize_window()
 time.sleep(tempo2)
 
-if navegador.find_element('xpath',elemento_user):
+try: 
+    navegador.find_element('xpath',elemento_user)
     navegador.find_element('xpath',elemento_user).send_keys(login)
-else:
+except:
     print("Erro ao inserir o login")
 
-if navegador.find_element('xpath', elemento_senha):
+try: 
+    navegador.find_element('xpath', elemento_senha)
     navegador.find_element('xpath', elemento_senha).send_keys(senha)   
-else:
+except:
     print("Erro ao inserir a senha")
 
-if navegador.find_element('xpath', elemento_entrar):
+try:
+    navegador.find_element('xpath', elemento_entrar)
     navegador.find_element('xpath', elemento_entrar).click()
-else:
+except:
     print("Erro ao inserir ao logar")
 
-if navegador.find_element('xpath', elemento_tirarBanner):
+try:
+    navegador.find_element('xpath', elemento_tirarBanner)
     navegador.find_element('xpath', elemento_tirarBanner).click()
-else:
-    print("Erro ao inserir ao logar")
+except:
+    print("Erro ao inserir ao fechar banner")
 
 time.sleep(tempo2)
 
-if navegador.find_element('xpath',elemento_relatorios):
+try: 
+    navegador.find_element('xpath',elemento_relatorios)
     navegador.find_element('xpath',elemento_relatorios).click()
-else:
+except:
     print("Erro ao acessar os relatórios")
 
 time.sleep(tempo1)
 
-if navegador.find_element('xpath',elemento_rltr_analitico):
+try: 
+    navegador.find_element('xpath',elemento_rltr_analitico)
     navegador.find_element('xpath',elemento_rltr_analitico).click()
-else:
+except:
     print("Erro ao acessar o relatório analítico")
 
 time.sleep(tempo1)
 
-if navegador.find_element('xpath',elemento_rltr_mov):
+try: 
+    navegador.find_element('xpath',elemento_rltr_mov)
     navegador.find_element('xpath',elemento_rltr_mov).click()
-else:
+except:
     print("Erro ao selecionar a opção de Movimentação")
 
 time.sleep(tempo1)
 
-if navegador.find_element('xpath',elemento_rltr_data1):
+try: 
+    navegador.find_element('xpath',elemento_rltr_data1)
     navegador.find_element('xpath',elemento_rltr_data1).clear()
     navegador.find_element('xpath',elemento_rltr_data1).send_keys(data_inicio_mes_txt)
-else:
+except:
     print("Erro ao inserir data de início")
 
 time.sleep(tempo1)
 
-if navegador.find_element('xpath',elemento_rltr_data2):
+try: 
+    navegador.find_element('xpath',elemento_rltr_data2)
     navegador.find_element('xpath',elemento_rltr_data2).clear()
     navegador.find_element('xpath',elemento_rltr_data2).send_keys(data_atual_txt)
-else:
+except:
     print("Erro ao inserir data final")
 
 time.sleep(tempo1)
 
-if navegador.find_element('xpath',elemento_exportar):
+try: 
+    navegador.find_element('xpath',elemento_exportar)
     navegador.find_element('xpath',elemento_exportar).click()
-else:
+except:
     print("Erro ao exportar CSV")
 
 print("Relatório Analítico extraído e funcionando!")
@@ -111,18 +121,19 @@ time.sleep(tempo_download)
 
 # Definindo os caminhos
 source = r"C:\Users\Nicholas Silva\Downloads\RelatorioProducaoAnalitico.CSV"
-destination = r"C:\Users\Nicholas Silva\OneDrive - PIX CARD SERVICOS TECNOLOGICOS E FINANCEIROS LTDA\Área de Trabalho"
+destination = r"C:\Users\Nicholas Silva\OneDrive - PIX CARD SERVICOS TECNOLOGICOS E FINANCEIROS LTDA\Área de Trabalho\Outros"
 
-# Verificando se o arquivo existe
-if not os.path.isfile(source):
+# Vertry:icando se o arquivo existe
+try: 
+    not os.path.isfile(source)
     print(f"O arquivo não foi encontrado em: {source}")
-else:
+except:
     print(f"O arquivo foi encontrado em: {source}")  # Adicione esta linha para depuração
     try:
         # Movendo o arquivo
         shutil.move(source, destination)
         print(f"Arquivo movido com sucesso para: {destination}")
     except PermissionError:
-        print("Permissão negada. Verifique se você tem permissão para mover o arquivo.")
+        print("Permissão negada. Vertry:ique se você tem permissão para mover o arquivo.")
     except Exception as e:
         print(f"Ocorreu um erro: {e}")
